@@ -30,3 +30,325 @@ sudo docker build –t mywebapp .
 
 sudo docker run –d –p 80:80 mywebapp
 net that port
+=================================================================
+WEEK 2 – COMPLETE GIT COMMANDS
+
+1. BASIC GIT COMMANDS
+
+git --version
+Description: Displays the installed Git version.
+
+git config --global user.name "Your Name"
+Description: Sets the global Git username.
+
+git config --global user.email "youremail@gmail.com"
+Description: Sets the global Git email.
+
+git config --list
+Description: Displays all Git configuration settings.
+
+2. REPOSITORY MANAGEMENT
+
+git init
+Description: Initializes a new Git repository in the current folder.
+
+git clone https://github.com/username/repository.git
+Description: Copies a remote repository to the local computer.
+
+git remote -v
+Description: Displays connected remote repositories and their URLs.
+
+git remote add origin https://github.com/username/repository.git
+Description: Adds a remote repository named origin.
+
+git remote remove origin
+Description: Removes the remote named origin.
+
+git remote rename origin upstream
+Description: Renames the remote from origin to upstream.
+
+git remote set-url origin https://github.com/username/new-repository.git
+Description: Changes the URL of the remote repository.
+
+git remote show origin
+Description: Displays detailed information about the remote repository.
+
+3. STAGING AND COMMITTING
+
+git status
+Description: Displays the current status of files.
+
+git add filename.txt
+Description: Adds a specific file to the staging area.
+
+git add .
+Description: Adds all changes to the staging area.
+
+git commit -m "Initial commit"
+Description: Saves staged changes with a commit message.
+
+4. BRANCHING AND MERGING
+
+git branch
+Description: Lists all local branches.
+
+git branch -a
+Description: Lists all local and remote branches.
+
+git branch -r
+Description: Lists remote branches only.
+
+git branch feature
+Description: Creates a new branch named feature.
+
+git checkout main
+Description: Switches to the main branch.
+
+git checkout feature
+Description: Switches to the feature branch.
+
+git checkout -b feature
+Description: Creates and switches to a new branch.
+
+git switch main
+Description: Switches to the main branch.
+
+git switch -c feature
+Description: Creates and switches to a new branch.
+
+git branch -d feature
+Description: Safely deletes a merged branch.
+
+git branch -D feature
+Description: Force-deletes a branch even if it is not merged.
+
+git branch --merged
+Description: Lists branches already merged into the current branch.
+
+git branch -d feature-a feature-b feature-c
+Description: Deletes multiple merged local branches.
+
+git checkout main
+git merge feature
+Description: Switches to main and merges the feature branch into it.
+
+git remote prune origin
+Description: Removes outdated remote-tracking branch references.
+
+git fetch origin feature-branch
+Description: Fetches a specific branch from the remote repository.
+
+git push --set-upstream origin feature-branch
+Description: Pushes the branch and sets its upstream tracking branch.
+
+git fetch origin
+git rebase origin/main
+Description: Fetches remote updates and rebases the current branch onto remote main.
+
+5. REMOTE REPOSITORY COMMANDS
+
+git push origin main
+Description: Uploads local commits to the remote main branch.
+
+git push -u origin main
+Description: Pushes main and sets its upstream branch.
+
+git pull origin main
+Description: Downloads and merges remote main changes into the current branch.
+
+git fetch origin
+Description: Downloads remote updates without merging them.
+
+6. UNDOING CHANGES
+
+git restore filename.txt
+Description: Discards unstaged changes in a file.
+
+git restore --staged filename.txt
+Description: Removes a file from staging without losing its working changes.
+
+git reset filename.txt
+Description: Unstages a file without deleting its changes.
+
+git reset --soft HEAD~1
+Description: Undoes the latest commit but keeps changes staged.
+
+git reset --mixed HEAD~1
+Description: Undoes the latest commit and keeps changes unstaged.
+
+git reset --hard HEAD~1
+Description: Removes the latest commit and its working changes.
+
+git revert commit_hash
+Description: Creates a new commit that reverses an earlier commit.
+
+git commit --amend -m "Corrected commit message"
+Description: Changes the latest commit message.
+
+7. VIEWING HISTORY
+
+git log
+Description: Displays complete commit history.
+
+git log --oneline
+Description: Displays commit history in a short format.
+
+git diff
+Description: Displays unstaged changes.
+
+git diff --staged
+Description: Displays staged changes.
+
+git show
+Description: Displays details of the latest commit.
+
+git show commit_hash
+Description: Displays details of a specific commit.
+
+git blame script.py
+Description: Shows who modified each line of a file.
+
+git blame -L 25,25 script.py
+Description: Shows who last changed line 25 of script.py.
+
+git reflog
+Description: Displays recent HEAD movements and helps recover deleted branches.
+
+git checkout -b feature-ui commit_hash
+Description: Recreates a branch from a previous commit.
+
+8. REMOVING SENSITIVE FILES FROM HISTORY
+
+git filter-repo --path secrets.txt --invert-paths
+Description: Removes secrets.txt from Git history. Revoke exposed API keys first. This command requires git-filter-repo to be installed.
+
+git push --force --all origin
+Description: Force-pushes rewritten branch histories to the remote. Coordinate with collaborators first.
+
+git push --force --tags origin
+Description: Force-pushes rewritten tags to the remote.
+
+9. RESOLVING MERGE CONFLICTS
+
+git status
+Description: Identifies files with merge conflicts.
+
+Open the conflicted file and remove the conflict markers:
+<<<<<<< HEAD
+=======
+>>>>>>> feature
+
+git add app.js
+Description: Stages the resolved file.
+
+git commit -m "Resolve merge conflict"
+Description: Completes the merge if Git requires a merge commit.
+
+10. GITIGNORE
+
+touch .gitignore
+Description: Creates a .gitignore file.
+
+*.log
+Description: Ignores all log files.
+
+node_modules/
+Description: Ignores the node_modules directory.
+
+secret_file.txt
+Description: Ignores a particular file.
+
+temp/
+Description: Ignores the temp directory.
+
+*.bak
+Description: Ignores all backup files.
+
+folder/*
+!folder/important_file.txt
+Description: Ignores all files in folder except important_file.txt.
+
+git status
+Description: Checks repository status and ignored/untracked files.
+
+11. GIT STASH
+
+git stash
+Description: Temporarily saves modified tracked files and cleans the working directory.
+
+git stash list
+Description: Lists all saved stashes.
+
+git stash apply
+Description: Restores the latest stash without deleting it.
+
+git stash pop
+Description: Restores and removes the latest stash.
+
+git stash drop
+Description: Deletes the latest stash.
+
+git stash clear
+Description: Deletes all saved stashes.
+
+12. PUSHING A MULTI-FOLDER PROJECT TO GITHUB
+
+git init
+Description: Initializes Git in the project root folder.
+
+git config --global user.name "Your Name"
+Description: Sets Git username.
+
+git config --global user.email "youremail@gmail.com"
+Description: Sets Git email.
+
+git remote add origin https://github.com/username/repository.git
+Description: Connects the local project to GitHub.
+
+git add .
+Description: Stages all project files and folders.
+
+git commit -m "Initial commit"
+Description: Creates the first commit.
+
+git branch -M main
+Description: Renames the current branch to main.
+
+git push -u origin main
+Description: Uploads the project to GitHub and sets upstream tracking.
+
+13. COMPLETE BASIC WORKFLOW
+
+git init
+git status
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/username/repository.git
+git push -u origin main
+
+Description: Initializes, stages, commits and uploads the project to GitHub.
+
+14. COMPLETE REMOTE WORKFLOW
+
+git clone https://github.com/username/repository.git
+git remote -v
+git pull origin main
+git add .
+git commit -m "Updated project"
+git push origin main
+
+Description: Clones a repository, checks its remote, downloads updates, commits changes and uploads them to GitHub.
+
+15. COMPLETE BRANCH WORKFLOW
+
+git checkout -b feature
+git add .
+git commit -m "Added feature"
+git push -u origin feature
+git checkout main
+git merge feature
+git push origin main
+git branch -d feature
+
+Description: Creates a feature branch, commits changes, pushes it, merges it into main and deletes the merged local branch.
