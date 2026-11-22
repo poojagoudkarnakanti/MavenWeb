@@ -4,3 +4,29 @@
   <artifactId>MavenProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </project>
+cd downloads
+ssh key 2nd one
+
+
+udo apt update
+sudo apt-get install docker.io
+1:49 pm
+sudo apt install git
+1:50 pm
+sudo apt install nano
+1:50 pm
+github.com
+ git clone https://github.com/kokkondavaishali/exam.git
+
+nano Dockerfile
+
+dockerfile:
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+
+
+sudo docker build –t mywebapp .
+
+sudo docker run –d –p 80:80 mywebapp
+net that port
